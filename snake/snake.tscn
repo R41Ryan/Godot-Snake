@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvm4tb3s2ensd"]
+
+[ext_resource type="Script" path="res://snake/snake.gd" id="1_l46cn"]
+[ext_resource type="PackedScene" uid="uid://babruwe3wmxmu" path="res://snake/snakeBody.tscn" id="2_fw0gp"]
+
+[node name="Snake" type="Node2D"]
+script = ExtResource("1_l46cn")
+
+[node name="Head" parent="." instance=ExtResource("2_fw0gp")]
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Body" type="Node2D" parent="."]
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]
